@@ -2,6 +2,11 @@ import * as UserModel from "../../models/user.model";
 import jwt, { JwtPayload, Secret } from 'jsonwebtoken';
 import { redis } from "../../utils/database/redis";
 
+// each resolver has (parent, args, context, info)
+// parent --> result of nest fields
+// args --> query arguments, req.body
+// context --> shared request data(auth, db, any service)
+// info --> query metadata
 export const userResolvers = {
     Query: {
         me: async (_: any, __: any, context: any) => {

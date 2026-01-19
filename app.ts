@@ -15,7 +15,7 @@ import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@as-integrations/express5";
 
 import { typeDefs } from "./graphql/type-defs";
-import {resolvers} from './graphql/resolvers';
+import { resolvers } from './graphql/resolvers';
 import { createContext } from "./graphql/context";
 
 export const app = express();
@@ -66,7 +66,7 @@ async function startGraphQL() {
     await server.start();
 
     app.use('/graphql', expressMiddleware(server,
-        { context: async ({ req }) => createContext({req}) }
+        { context: async ({ req }) => createContext({ req }) }
     ));
 
 }

@@ -1,5 +1,6 @@
 import gql from "graphql-tag";
 
+// entities
 export const cartTypeDefs = gql`
    type CartItem{
     productId:Product!

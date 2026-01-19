@@ -33,7 +33,8 @@ export const cartResolvers = {
       if (!context.user) throw new Error("Unauthorized");
 
       const cart = await Cart.findOne({ userId: context.user._id });
-
+      console.log("cart info")
+      console.log(cart)
       if (!cart) {
         return Cart.create({
           userId: context.user._id,
@@ -48,6 +49,7 @@ export const cartResolvers = {
       if (index > -1) {
         cart.items[index].quantity += quantity;
       } else {
+        console.log('entered into push')
         cart.items.push({ productId, quantity });
       }
 
